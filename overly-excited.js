@@ -13,10 +13,11 @@ let addExcitement = (theWordArray, symbol) =>  {
     //Set up variables to be used
     let buildMeUp = "";
     let currentItem = "";
-    let exclaimPt = symbol
+    let exclaimPt = symbol;
 
     //Set up loop to iterate over the array
     for (i = 0; i < theWordArray.length; i++) {
+
         //Assign the first item in the array to a variable
         let currentItem = theWordArray[i];
 
@@ -24,23 +25,28 @@ let addExcitement = (theWordArray, symbol) =>  {
         if (i === 0){
             buildMeUp = currentItem;
         }
-        // Each time the for loop executes, you're going to add one more current item to this string
+
+        //Each time the for loop executes, you're going to add one more current item to this string
         else {
             buildMeUp += " " + currentItem;
         }
 
+        //Check for every 3rd word in the sentence and add a symbol
         if ((i +1) % 3 === 0) {
-            buildMeUp += exclaimPt;
-            exclaimPt += symbol;
-        }
-        if (i === (theWordArray.length - 1)){
-            buildMeUp += ".";
+            buildMeUp += exclaimPt; //concatenate the sentence with the symbol
+            exclaimPt += symbol;    //add an additional symbol for the next iteration of the for loop
         }
 
+        //Detect the end of the sentence
+        if (i === (theWordArray.length - 1)){
+            buildMeUp += ".";       //concatenate the sentence with the period
+        }
+
+        //Console log the current version of the sentence (buildMeUp)
         console.log(buildMeUp);
 
       }
 }
-// Invoke the function and pass in the array
+// Invoke the function and pass in the array and the symbol to use
 addExcitement(sentence, "*");
 addExcitement(nextSentence, ">");
